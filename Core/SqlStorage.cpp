@@ -281,7 +281,7 @@ Event SqlStorage::makeEvent(const SqlRaiiTransactor &)
 
     { // insert a new record in the database
         QSqlQuery query(database());
-        query.prepare(QLatin1String("INSERT into Events values "
+        query.prepare(QLatin1String("INSERT into Events (id, user_id, event_id, installation_id, report_id, task, comment, start, end) values "
                                     "( NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL );"));
         result = runQuery(query);
         Q_ASSERT(result); // this has to suceed
